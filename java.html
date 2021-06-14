@@ -1,33 +1,60 @@
-<html>
-<head>
-    <title>Page Title</title>
-    <meta charset="UTF-8/">
-</head>
-<body>
-    <script>
-        console.log("Hello World")
-        let x = 5;
-        let y = 5;
-        const z = 9;
-        let a = ("7")
-        let q = ("bob")
-        let w = ("kachow")
-        let g=("8")
-        console.log(x + y)
-        console.log((4+6+9)/77)
-        console.log(x-z)
-        console.log(x/z)
-        console.log( y==z)
-        console.log(y===x)
-        console.log (typeof(x))
-        console.log (Number(a) - x)
-        console.log(q + w)
-        console.log(1/0)
-        console.log(+a + +g)
-        console.log (`the big banana ${2+2}`)
-        console.log(typeof (a))   
-     
-        alert(x)
-    </script>
-</body>
-</html>
+<script>
+	function playRound(playerSelection, computerSelection){
+	}
+	//In this case it is going to be a selection function
+	// specifically we want the computer to choose it's hand in this function
+	//starting out we need to have a the computer selection be defined
+	//then we need to have the necessary variables attached
+	//then after defining the computer selection options we need to allow it to randomly choose them (done)
+	//then we need to include the scenarios of playerselection compared to computer draw
+	//first we would call the variable of player slection
+	//we would then compare the variable of player selection to computer selection
+
+	const playerSelection = window.prompt("Please enter your hand for this round");
+	const computerSelection = Math.random();
+	let i = 0
+	
+	if (computerSelection >= 0.66) {
+		let computerdraw = "scissors" 
+		return computerdraw
+			
+	} else if (computerSelection <= 0.33) {
+		
+	} else if (computerSelection <= 0.33 || computerSelection >= 0.66) {
+	} 
+	
+	if ( computerdraw == "rock" && playerSelection =="rock") {
+		alert("its a tie")
+	} else if ( computerdraw == "rock" &&  playerSelection == "paper") {
+		alert("its a tie")
+		i+= 1
+
+	}   else if (computerdraw == "rock" &&  playerSelection == "scissors") {
+	alert("you lose")
+	} else if (computerdraw == "paper" && playerSelection == "scissors") {
+		alert("you win")
+		i += 1
+	}	else if (computerdraw == "paper" && playerSelection == "rock"){
+	alert("you lose")
+	} else if (computerdraw ==  "paper" && playerSelection == "paper")
+	alert("this is a tie")
+	 else if (computerdraw == "scissors" && playerSelection == "scissors") {
+		alert ("this is a tie")
+	} else if  (computerdraw == "scissors" && playerSelection == "rock") {
+		alert(" this is a win. rock beats scissors")
+		i += 1
+	} else if (computerdraw == "scissors" && playerSelection == "paper") {
+		alert("This is a loss scissors beats paper")
+	}
+
+		
+	
+
+	
+	
+
+	
+		
+	
+
+</script>
