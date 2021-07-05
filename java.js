@@ -13,7 +13,7 @@ let playerSelection = playermove();
 		}
 	function playermove() {
 		
-			return window.prompt("Please enter:rock,paper, or scissors").toLowerCase();
+			
 	}
 	function playRound(playerSelection,computerSelection) {
 	

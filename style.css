@@ -3,3 +3,24 @@
     margin-top: 100px;
 
 }
+
+#rock {
+    flex:auto;
+    width: 100px;
+    height: 100px;
+
+}
+#paper {
+    flex:auto;
+    width: 100px;
+    height: 100px;
+
+}
+
+#scissors {
+    flex:auto;
+    width: 100px;
+    height: 100px;
+
+
+}
