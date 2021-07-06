@@ -3,7 +3,7 @@
 	
 	
 let playerSelection = playermove();
-	let computerSelection= computerplay();
+	let computerSelection = computerplay();
 	let roundresult = playRound(playerSelection, computerSelection);
 
 
@@ -13,7 +13,7 @@ let playerSelection = playermove();
 		}
 	function playermove() {
 		
-			
+			 
 	}
 	function playRound(playerSelection,computerSelection) {
 	
@@ -83,3 +83,20 @@ let playerSelection = playermove();
 		
 		}
 	
+const playericon = document.querySelectorAll('.playermove')
+playericon.forEach( playericon => {
+	playericon.addEventListener('click', () =>  {
+		playericon.classList.add('move')
+
+		
+	})
+
+})
+const playericons = document.querySelectorAll('.playermove')
+
+function removeborder(playericon) {
+	console.log(playericon)
+}
+
+playericons.forEach(playericon => playericon.addEventListener('transitionend', removeborder))
+const computericon = document.querySelectorAll(`.computermove`)
