@@ -1,0 +1,33 @@
+.header {
+    text-align:center;
+    margin-top: 100px;
+    padding-bottom: 25px;
+    
+
+}
+.flexcontainers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.computermove {
+    margin-right: 35%;
+    width: 100px;
+    height: 100px;
+    transition:all 0.07;
+}
+
+.playermove {
+    margin-left: 35%;
+    width: 100px;
+    height: 100px;
+    transition: all 0.07 ease;
+   
+}
+
+.move {
+    border-style: solid;
+    border-color: black;
+    transition: all 1 ease-in;
+
+}
