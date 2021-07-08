@@ -2,7 +2,7 @@
 	
 	
 	
-let playerSelection = playermove();
+	 let playerSelection = iconchange();
 	let computerSelection = computerplay();
 	let roundresult = playRound(playerSelection, computerSelection);
 
@@ -11,10 +11,7 @@ let playerSelection = playermove();
 		let computerdraws = ["rock", "paper", "scissors"];
 		return computerdraws[Math.floor(Math.random() * computerdraws.length)];
 		}
-	function playermove() {
-		
-			 
-	}
+
 	function playRound(playerSelection,computerSelection) {
 	
 	if ( computerSelection == "rock" &&  playerSelection == "paper") {
@@ -49,16 +46,23 @@ let playerSelection = playermove();
 	}
 	}
 
+	let playerscore = (function() {
+		let playerscore = 0;
+		return function() {
+			++playerscore;
+			return playerscore;
+		}
+	})();
+
+	let computerscore = (function() {
+		let computerscore = 0;
+		return function() {
+			++computerscore;
+			return computerscore;
+		}
+	})();
 
 	function game(roundresult){
-		let playerscore = (function() {
-			let playerscore = 0;
-			return function() {
-				++playerscore;
-				return playerscore;
-			}
-		})();
-
 		let computerscore = (function() {
 			let computerscore = 0;
 			return function() {
@@ -82,21 +86,42 @@ let playerSelection = playermove();
 		}
 		
 		}
-	
-const playericon = document.querySelectorAll('.playermove')
-playericon.forEach( playericon => {
-	playericon.addEventListener('click', () =>  {
-		playericon.classList.add('move')
 
-		
+	function iconchange() {	
+
+let playericon = document.querySelectorAll('.playermove');
+
+let playericons = document.querySelectorAll('.playermove')
+	let first = playericons.item(0)
+	first.addEventListener('click', () => {
+	 console.log("hi")
 	})
 
-})
-const playericons = document.querySelectorAll('.playermove')
+	let second = playericons.item(1);
+	second.addEventListener ('click', () => {
+		console.log("second")
+	})
+playericon.forEach( playericon => {
+	playericon.addEventListener('click', () =>  {
+		playericon.classList.add('move');
+		setTimeout( function() { 
+			playericon.classList.remove('move')
 
-function removeborder(playericon) {
-	console.log(playericon)
+		}, 1000)
+		
+		
+		
+		
+	})
+	
+})
+
 }
 
-playericons.forEach(playericon => playericon.addEventListener('transitionend', removeborder))
-const computericon = document.querySelectorAll(`.computermove`)
+
+
+
+
+const computericon = document.querySelectorAll(`.computermove`);
+const playerscoreview = document.getElementById('playerscore');
+const computerscoreview = document.getElementById('computerscore') 
