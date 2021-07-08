@@ -8,6 +8,8 @@
 .flexcontainers {
     display: flex;
     justify-content: space-between;
+
+    
 }
 
 .computermove {
@@ -15,19 +17,36 @@
     width: 100px;
     height: 100px;
     transition:all 0.07;
+  
+
 }
 
 .playermove {
     margin-left: 35%;
     width: 100px;
     height: 100px;
-    transition: all 0.07 ease;
+    border-style: solid;
+   border-color:  white;
+   transition: border 1s;
+   
+    
    
 }
 
 .move {
     border-style: solid;
     border-color: black;
-    transition: all 1 ease-in;
+    transition: border 1s all;
+    transition: border-color 0.5s;
+    
 
 }
+
+#computerscore {
+
+}
+
+#playerscore {
+    
+}
+
