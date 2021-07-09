@@ -7,10 +7,56 @@
 	let roundresult = playRound(playerSelection, computerSelection);
 
 
-	function computerplay() {
-		let computerdraws = ["rock", "paper", "scissors"];
-		return computerdraws[Math.floor(Math.random() * computerdraws.length)];
+	function iconchange() {	
+
+		let playericon = document.querySelectorAll('.playermove');
+		
+		let playericons = document.querySelectorAll('.playermove')
+			let first = playericons.item(0)
+			first.addEventListener('click', () => {
+			 let playerrock = 0;
+			 return playerrock;
+			})
+		
+			let second = playericons.item(1);
+			second.addEventListener ('click', () => {
+				let playerpaper = 1;
+				return playerpaper;
+			})
+			let third = playericons.item(2);
+			third.addEventListener ('click', () => {
+				let playerscissors = 2;
+				return console.log(playerscissors);
+			})
+			
+		playericon.forEach( playericon => {
+			playericon.addEventListener('click', () =>  {
+				playericon.classList.add('move');
+				setTimeout( function() { 
+					playericon.classList.remove('move')
+		
+				}, 1000)
+				
+				
+				
+				
+			})
+			
+		})
+		
 		}
+		
+		
+		
+		
+	function computerplay() {
+		let playericonss = document.querySelectorAll("playermove");
+		playericonss.forEach( playericonss => (playericonss.addEventListener('click', () => {
+		let computerdraws = ["rock", "paper", "scissors"];
+		return console.log(computerdraws[Math.floor(Math.random() * computerdraws.length)])
+		
+		})
+		))}
 
 	function playRound(playerSelection,computerSelection) {
 	
@@ -46,8 +92,12 @@
 	}
 	}
 
+	const playerscoreview = document.getElementById('playerscore');
+
+	const computerscoreview = document.getElementById('computerscore') 
+	
 	let playerscore = (function() {
-		let playerscore = 0;
+		let playerscore = -1;
 		return function() {
 			++playerscore;
 			return playerscore;
@@ -55,13 +105,14 @@
 	})();
 
 	let computerscore = (function() {
-		let computerscore = 0;
+		let computerscore = -1;
 		return function() {
 			++computerscore;
 			return computerscore;
 		}
 	})();
-
+	playerscoreview.textContent = playerscore();
+	computerscoreview.textContent = computerscore();
 	function game(roundresult){
 		let computerscore = (function() {
 			let computerscore = 0;
@@ -87,41 +138,5 @@
 		
 		}
 
-	function iconchange() {	
-
-let playericon = document.querySelectorAll('.playermove');
-
-let playericons = document.querySelectorAll('.playermove')
-	let first = playericons.item(0)
-	first.addEventListener('click', () => {
-	 console.log("hi")
-	})
-
-	let second = playericons.item(1);
-	second.addEventListener ('click', () => {
-		console.log("second")
-	})
-playericon.forEach( playericon => {
-	playericon.addEventListener('click', () =>  {
-		playericon.classList.add('move');
-		setTimeout( function() { 
-			playericon.classList.remove('move')
-
-		}, 1000)
-		
-		
-		
-		
-	})
-	
-})
-
-}
 
 
-
-
-
-const computericon = document.querySelectorAll(`.computermove`);
-const playerscoreview = document.getElementById('playerscore');
-const computerscoreview = document.getElementById('computerscore') 
