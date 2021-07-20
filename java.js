@@ -1,127 +1,119 @@
-
 	
-	
-	
-	 let playerSelection = iconchange();
+	let cuserscore = 0;
+	let ccomputerscore = 0;
+	let userchoices = userchoice();
+	let playericons = playerplay();
 	let computerSelection = computerplay();
-	let roundresult = playRound(playerSelection, computerSelection);
+	let game = playround();
 
+
+	
+
+		
+	function playerplay() {
+	let playericon = document.querySelectorAll('.playermove');
+		playericon.forEach( playericon => {
+		playericon.addEventListener('click', () =>  {
+			playericon.classList.add('move');
+			setTimeout( function() { 
+				playericon.classList.remove('move')
+	
+			}, 1000)
+			
+			
+			
+			
+		})
+		
+	})
+
+	}
 
 	function computerplay() {
-		let computerdraws = ["rock", "paper", "scissors"];
-		return computerdraws[Math.floor(Math.random() * computerdraws.length)];
+			
+			let computerdraws = ["rock", "paper", "scissors"];
+			return computerdraws[Math.floor(Math.random() * computerdraws.length)]
+			
+			
+		
 		}
-
-	function playRound(playerSelection,computerSelection) {
-	
-	if ( computerSelection == "rock" &&  playerSelection == "paper") {
-		return 1;
-		
-	}   else if (computerSelection == "rock" &&  playerSelection == "scissors") {
-		return 2;		
-	} else if (computerSelection == "paper" && playerSelection == "scissors") {
-		return 1;
-	
-	}	else if (computerSelection == "paper" && playerSelection == "rock"){
-		return 2;
-		
-	}  else if  (computerSelection == "scissors" && playerSelection == "rock") {
-		return 1;
-	
-	} else if (computerSelection == "scissors" && playerSelection == "paper") {
-		return 2;
-		
+	function userchoice () {
+	let playericons = document.querySelectorAll('.playermove');
+	playericons.item(0).addEventListener('click', function() {
+		return playround("rock");
+	})
+	playericons.item(1).addEventListener('click', function() {
+		return playround("paper");
+	})
+	playericons.item(2).addEventListener('click', function() {
+		return playround("scissors");
+	})
+	}
+	function win(userchoice,computerchoices){
+		let z = computerchoices
+		let userscore = document.getElementById('playerscore')
+		userscore.textContent = ++cuserscore
+		let announcer = document.getElementById('scorekeeper')
+		announcer.textContent = "you win this round playerpick:" + userchoice + " computer pick: " + z;
+		gameconclusion();
+	}
+	function lose(userchoice,computerchoices) {
+		let z = computerchoices
+		let computerscore = document.getElementById('computerscore')
+		computerscore.textContent = ++ccomputerscore
+		let announcer = document.getElementById('scorekeeper')
+		announcer.textContent = "you lose round playerpick:" + userchoice + " computer pick: " + z;
+		gameconclusion();
+	}
+	function tie() {
+		let announcer = document.getElementById('scorekeeper')
+		announcer.textContent = "tie"
+		gameconclusion();
 	} 
-	
+	function playround(userchoice) {
+		const computerchoices = computerplay();
+		
+		switch(userchoice + computerchoices) {
+			case "rockscissors":
+			case "scissorspaper":
+			case "paperrock":
+				win(userchoice,computerchoices);
+			break;
+			case "rockrock":
+			case "paperpaper":
+			case "sscissorsscissors":
+				tie(userchoice,computerchoices);
 
-	}
-
-	function announcer(playRound,playerSelection,computerSelection) {
-		if (playRound == 1) {
-		return "You win. Player choice: " + playerSelection + " vs Computer choice: " + computerSelection;
-	} else if (playRound == 2) {
-		return "You lose. player choice: " + playerSelection + " vs Computer choice: " + computerSelection;
-	} else if (playRound == undefine) {
-		return "No win or loss" + playerSelection + computerSelection
-	}
-	}
-
-	let playerscore = (function() {
-		let playerscore = 0;
-		return function() {
-			++playerscore;
-			return playerscore;
-		}
-	})();
-
-	let computerscore = (function() {
-		let computerscore = 0;
-		return function() {
-			++computerscore;
-			return computerscore;
-		}
-	})();
-
-	function game(roundresult){
-		let computerscore = (function() {
-			let computerscore = 0;
-			return function() {
-				++computerscore;
-				return computerscore;
+			break;
+			case "rockpaper":
+			case "paperscissors":
+			case "scissorsrock":
+				lose(userchoice,computerchoices);	
 			}
-		})();
-
-		if (roundresult == 1) {
-			playerscore();
-			
-		} else if (roundresult ==2 ) {
-			computerscore ();
-			
-		}
-		
-		if (computerscore == 5) {
-			return "you lose!";
-		} else if (playerscore == 5) {
-			return "return you win!"
-		}
-		
-		}
-
-	function iconchange() {	
-
-let playericon = document.querySelectorAll('.playermove');
-
-let playericons = document.querySelectorAll('.playermove')
-	let first = playericons.item(0)
-	first.addEventListener('click', () => {
-	 console.log("hi")
-	})
-
-	let second = playericons.item(1);
-	second.addEventListener ('click', () => {
-		console.log("second")
-	})
-playericon.forEach( playericon => {
-	playericon.addEventListener('click', () =>  {
-		playericon.classList.add('move');
-		setTimeout( function() { 
-			playericon.classList.remove('move')
-
-		}, 1000)
-		
-		
-		
-		
-	})
 	
-})
+	}
 
-}
+		function roundannouncer () {
+			announcer = document.getElementById('scorekeeper');
+		}
+		function gameconclusion () {
+			announcer = document.getElementById('scorekeeper')
+			if (cuserscore >= 5) {
+				announcer.textContent = "you win!" 
+				resetpage()
+			} else if (ccomputerscore >= 5) {
+				announcer.textContent = "you lose!"
+				resetpage()
+			} 
+			
+		}
 
-
-
-
-
-const computericon = document.querySelectorAll(`.computermove`);
-const playerscoreview = document.getElementById('playerscore');
-const computerscoreview = document.getElementById('computerscore') 
+		function resetpage() {
+			
+			setTimeout(() => {
+				window.location.reload(true) 
+			}, 1000);
+		}
+	
+		
+		
